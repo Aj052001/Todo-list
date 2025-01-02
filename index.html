@@ -1,24 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo Widget</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+   body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: transparent;
+  overflow: hidden;
+}
+
+#widget {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+.title-bar {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-app-region: drag;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+#task-list {
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: rgba(51, 51, 51, 0.8);
+  border-radius: 4px;
+  position: relative;
+}
+
+.task-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task-item span {
+  flex-grow: 1;
+  color: #fff;
+}
+
+.task-item.completed span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #ff4444;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: rgba(255, 68, 68, 0.2);
+}
+
+.input-container {
+  padding: 10px;
+  position: sticky;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  gap: 10px;
+}
+
+#task-input {
+  flex-grow: 1;
+  padding: 10px;
+  background-color: rgba(51, 51, 51, 0.8);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+}
+
+#task-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#add-task {
+  padding: 10px 20px;
+  background-color: #2196F3;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+#add-task:hover {
+  background-color: #1976D2;
+}
+
+/* Updated HTML structure for task items */
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  padding-right: 40px; /* Make room for delete button */
+  margin-bottom: 8px;
+  background-color: rgba(51, 51, 51, 0.8);
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Checkbox styling */
+.task-item input[type="checkbox"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+  </style>
 </head>
 <body>
-  <div id="widget" class="blur">
-    <h1 class="title">Todo-list</h1>
-    <ul id="task-list"></ul>
+  <div id="widget">
+    <div class="title-bar">
+      <h1 class="title">Todo List</h1>
+    </div>
+    <div id="task-list"></div>
     <div class="input-container">
-      <input type="text" id="task-input" placeholder="Add a new task..." />
+      <input type="text" id="task-input" placeholder="Add a new task...">
       <button id="add-task">Add</button>
     </div>
   </div>
   <script src="renderer.js"></script>
 </body>
 </html>
-
-
-
-

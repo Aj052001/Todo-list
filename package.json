@@ -4,10 +4,22 @@
   "description": "A draggable Todo List widget",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
-  "author": "ajaysinghiiitbhopal@gmail.com",
+  "build": {
+    "appId": "com.yourtodo.app",
+    "productName": "Todo Widget",
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Utility",
+      "icon": "icon.png",
+      "maintainer": "Ajay Singh <ajaysinghiiitbhopal@gmail.com>"
+    }
+  },
+  "author": "Ajay Singh <ajaysinghiiitbhopal@gmail.com>",
   "devDependencies": {
-    "electron": "^24.0.0"
+    "electron": "^24.0.0",
+    "electron-builder": "^25.1.8"
   }
 }
