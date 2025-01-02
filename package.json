@@ -1,0 +1,31 @@
+{
+  "name": "todo-widget",
+  "version": "1.0.0",
+  "description": "A draggable Todo List widget",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.todo.widget",
+    "productName": "Todo Widget",
+    "files": [
+      "**/*"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "devDependencies": {
+    "electron": "^24.0.0",
+    "electron-builder": "^25.1.8"
+  }
+}
