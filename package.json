@@ -18,12 +18,14 @@
         "AppImage",
         "deb"
       ],
-      "category": "Utility"
+      "category": "Utility",
+      "maintainer": "Your Name <your-email@example.com>" 
     },
     "directories": {
       "output": "dist"
     }
   },
+  "author": "ajaysinghiiitbhopal@gmail.com",
   "devDependencies": {
     "electron": "^24.0.0",
     "electron-builder": "^25.1.8"
